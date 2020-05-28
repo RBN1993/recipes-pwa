@@ -1,4 +1,4 @@
-# Platzi Recetas
+# Mealdb Recetas
 
 ![Captura de Recetas](.readme-static/captura.png)
 
@@ -9,6 +9,10 @@ PWA que utiliza la API de MealDB para mostrar recetas con sus instrucciones. Alg
 - Add to Home Screen
 - Web Share API
 - Creado con [Create React App](https://github.com/facebookincubator/create-react-app).
+
+## Demo
+
+Visita mi demo en este [link!](https://recipes-pwa.now.sh)
 
 ## Scripts
 

@@ -5,15 +5,15 @@
  */
 
 // Precarga la app
-self.__precacheManifest = [].concat(self.__precacheManifest || []);
-workbox.precaching.suppressWarnings();
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+self.__precacheManifest = [].concat(self.__precacheManifest || [])
+workbox.precaching.suppressWarnings()
+workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 
 // App Shell
-workbox.routing.registerNavigationRoute('/index.html');
+workbox.routing.registerNavigationRoute('/index.html')
 
 //Activar el uso de Google Analytics offline en workbox
-workbox.googleAnalytics.initialize();
+workbox.googleAnalytics.initialize()
 
 /**
  * El orden en que se escriben las estrategias de carga es importante
@@ -26,7 +26,7 @@ workbox.routing.registerRoute(
   /^https?:\/\/www.themealdb.com\/api\/.*/,
   workbox.strategies.staleWhileRevalidate(),
   'GET'
-);
+)
 
 //Tiene un regex para matchear los dos dominios de google Apis
 workbox.routing.registerRoute(
@@ -35,12 +35,12 @@ workbox.routing.registerRoute(
     cacheName: 'google-fonts-cache',
     plugins: [
       new workbox.expiration.Plugin({
-        maxAgeSeconds: 30 * 24 * 60 * 60, //Un mes
-      }),
-    ],
+        maxAgeSeconds: 30 * 24 * 60 * 60 //Un mes
+      })
+    ]
   }),
   'GET'
-);
+)
 
 //Tiene un regex para matchear las imagenes de mealdb
 workbox.routing.registerRoute(
@@ -50,16 +50,16 @@ workbox.routing.registerRoute(
     plugins: [
       new workbox.expiration.Plugin({
         maxAgeSeconds: 7 * 24 * 60 * 60, //Una semana
-        maxEntries: 20,
-      }),
-    ],
+        maxEntries: 20
+      })
+    ]
   }),
   'GET'
-);
+)
 
 // Todo lo demás usa Network First (La por defecto va al final del todo)
 workbox.routing.registerRoute(
   /^https?:\/\/www.themealdb.com\/api\/.*/,
   workbox.strategies.networkFirst(),
   'GET'
-);
+)

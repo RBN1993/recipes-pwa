@@ -1,9 +1,12 @@
-const {defaultInjectConfig, rewireWorkboxInject} = require('react-app-rewire-workbox')
-const path = require('path');
+const {
+  defaultInjectConfig,
+  rewireWorkboxInject
+} = require('react-app-rewire-workbox')
+const path = require('path')
 
 module.exports = function override(config, env) {
-  if (env === "production") {
-    console.log("Generating Service Worker")
+  if (env === 'production') {
+    console.log('Generating Service Worker')
 
     const workboxConfig = {
       ...defaultInjectConfig,
@@ -12,5 +15,5 @@ module.exports = function override(config, env) {
     config = rewireWorkboxInject(workboxConfig)(config, env)
   }
 
-  return config;
+  return config
 }

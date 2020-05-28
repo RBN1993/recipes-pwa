@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   padding: 0;
@@ -6,7 +5,12 @@ body {
   background: #f0f0f0;
   color: #333;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
 }
@@ -23,7 +27,7 @@ header {
   font-family: 'Pacifico', sans-serif;
   text-align: center;
   background: white;
-  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 header a {
   color: orange;
@@ -56,7 +60,6 @@ main {
   margin: 0 auto;
 }
 
-
 .recipes {
   display: grid;
   grid-gap: 20px;
@@ -66,7 +69,7 @@ main {
 .recipe {
   border-radius: 6px;
   text-decoration: none;
-  box-shadow: 0 3px 4px rgba(0,0,0,0.15);
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
 }
 .recipe .bg {
   display: block;
@@ -91,7 +94,6 @@ main {
   color: #fff;
   margin: 0;
 }
-
 
 .Recipe .hero {
   display: block;
@@ -123,15 +125,12 @@ main {
   font-size: 20px;
 }
 
-
-
 .Recipe .ingredients {
   padding: 20px;
 }
 .Recipe .ingredients li {
   line-height: 140%;
 }
-
 
 .Recipe .instructions {
   padding: 20px;
@@ -151,7 +150,6 @@ main {
   line-height: 140%;
 }
 
-
 .Timer {
   padding: 15px;
   background: white;
@@ -160,7 +158,7 @@ main {
   width: 300px;
   height: 300px;
   margin: 30px auto;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 .Timer .name {
   display: block;
