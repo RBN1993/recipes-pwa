@@ -1,6 +1,7 @@
 {
   "short_name": "Recetas",
   "name": "Mealdb Recetas",
+  "description": "A Progressive Web App built using React.js",
   "icons": [
     {
       "src": "/icon.png",
