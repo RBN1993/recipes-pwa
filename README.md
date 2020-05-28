@@ -14,6 +14,8 @@ PWA que utiliza la API de MealDB para mostrar recetas con sus instrucciones. Alg
 
 Visita mi demo en este [link!](https://recipes-pwa.now.sh)
 
+![Recetas](.readme-static/screen-pwa.png)
+
 ## Scripts
 
 - `yarn install` para instalar las dependencias
