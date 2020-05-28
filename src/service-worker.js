@@ -12,6 +12,9 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 // App Shell
 workbox.routing.registerNavigationRoute('/index.html');
 
+//Activar el uso de Google Analytics offline en workbox
+workbox.googleAnalytics.initialize();
+
 /**
  * El orden en que se escriben las estrategias de carga es importante
  * va del más restrictivo al por defecto
@@ -33,6 +36,21 @@ workbox.routing.registerRoute(
     plugins: [
       new workbox.expiration.Plugin({
         maxAgeSeconds: 30 * 24 * 60 * 60, //Un mes
+      }),
+    ],
+  }),
+  'GET'
+);
+
+//Tiene un regex para matchear las imagenes de mealdb
+workbox.routing.registerRoute(
+  /^https?:\/\/www.themealdb.com\/images\/.*/,
+  workbox.strategies.cacheFirst({
+    cacheName: 'images-cache',
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxAgeSeconds: 7 * 24 * 60 * 60, //Una semana
+        maxEntries: 20,
       }),
     ],
   }),
