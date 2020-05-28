@@ -18,7 +18,7 @@ workbox.routing.registerNavigationRoute('/index.html');
  */
 
 // La API usa Stale While Revalidate para mayor velocidad en este caso solo para los GET
-// (Pero requiere recargar para ver nuevos cambios)
+// (Pero requiere recargar para ver nuevos cambios, con  lo cual es necesaria conexión)
 workbox.routing.registerRoute(
   /^https?:\/\/www.themealdb.com\/api\/.*/,
   workbox.strategies.staleWhileRevalidate(),
@@ -28,13 +28,20 @@ workbox.routing.registerRoute(
 //Tiene un regex para matchear los dos dominios de google Apis
 workbox.routing.registerRoute(
   /^https:\/\/fonts.(?:googleapis|gstatic).com\/(.*)/,
-  workbox.strategies.cacheFirst(),
+  workbox.strategies.cacheFirst({
+    cacheName: 'google-fonts-cache',
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxAgeSeconds: 30 * 24 * 60 * 60, //Un mes
+      }),
+    ],
+  }),
   'GET'
 );
 
 // Todo lo demás usa Network First (La por defecto va al final del todo)
 workbox.routing.registerRoute(
-  /^https?.*/,
+  /^https?:\/\/www.themealdb.com\/api\/.*/,
   workbox.strategies.networkFirst(),
   'GET'
 );
