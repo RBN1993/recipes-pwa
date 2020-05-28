@@ -25,6 +25,13 @@ workbox.routing.registerRoute(
   'GET'
 );
 
+//Tiene un regex para matchear los dos dominios de google Apis
+workbox.routing.registerRoute(
+  /^https:\/\/fonts.(?:googleapis|gstatic).com\/(.*)/,
+  workbox.strategies.cacheFirst(),
+  'GET'
+);
+
 // Todo lo demás usa Network First (La por defecto va al final del todo)
 workbox.routing.registerRoute(
   /^https?.*/,
