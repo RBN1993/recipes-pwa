@@ -12,7 +12,20 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 // App Shell
 workbox.routing.registerNavigationRoute('/index.html');
 
-// Todo lo demás usa Network First
+/**
+ * El orden en que se escriben las estrategias de carga es importante
+ * va del más restrictivo al por defecto
+ */
+
+// La API usa Stale While Revalidate para mayor velocidad en este caso solo para los GET
+// (Pero requiere recargar para ver nuevos cambios)
+workbox.routing.registerRoute(
+  /^https?:\/\/www.themealdb.com\/api\/.*/,
+  workbox.strategies.staleWhileRevalidate(),
+  'GET'
+);
+
+// Todo lo demás usa Network First (La por defecto va al final del todo)
 workbox.routing.registerRoute(
   /^https?.*/,
   workbox.strategies.networkFirst(),
