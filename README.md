@@ -1,4 +1,4 @@
-# Mealdb Recetas
+## Mealdb Recetas
 
 ![Captura de Recetas](.readme-static/captura.png)
 
